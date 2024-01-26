@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADING -->
+    <div><h1>Rock - Paper - Scissor</h1></div>
+
+    <div id="mainDiv">
+      <div id="box1">
+        <div><h3>Computer Choice</h3></div>
+        <br />
+        <div id="compChoice"></div>
+      </div>
+
+      <div id="box2">
+        <div><h2>Score Board</h2></div>
+        <br />
+        <div><input type="text" id="scoreBoard" disabled /></div>
+      </div>
+
+      <div id="box3">
+        <div><h3>User Choice</h3></div>
+        <br />
+        <div id="userChoice"></div>
+      </div>
+    </div>
+
+    <!-- SVG ICONS -->
+    <div id="svgInputBlock">
+      <div>
+        <img
+          id="svg1"
+          onclick="selectedInput(this)"
+          src="./assets/rock.svg"
+          alt="Rock"
+          class="svg-input"
+        />
+      </div>
+      <div>
+        <img
+          id="svg2"
+          onclick="selectedInput(this)"
+          src="./assets/paper.svg"
+          alt="Paper"
+          class="svg-input"
+        />
+      </div>
+      <div>
+        <img
+          id="svg3"
+          onclick="selectedInput(this)"
+          src="./assets/scissors.svg"
+          alt="Scissor"
+          class="svg-input"
+        />
+      </div>
+    </div>
+
+    <div id="messageBlock"><h1 id="message"></h1></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

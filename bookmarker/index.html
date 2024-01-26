@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="headingBox">
+      <h1 id="mainHeading">Bookmarker</h1>
+      <p id="slogan">Save your website to later access quickly</p>
+    </div>
+
+    <div id="inputBlock">
+      <div class="labelName label-one">
+        <label for="siteNameField">SITE NAME</label> <br />
+        <input id="siteNameField" class="inputFields" />
+      </div>
+
+      <div class="labelName label-two">
+        <label for="siteURLField">SITE URL</label> <br />
+        <input id="siteURLField" type="text" class="inputFields" />
+      </div>
+
+      <div class="">
+        <button id="button-save" onclick="validation()">SAVE</button>
+      </div>
+    </div>
+
+    <div id="display-bookmark">
+      <h2 class="bookmark-list">SAVED BOOKMARK</h2>
+      <h6 id="bookmarkStatus"></h6>
+    </div>
+    <div id="showAllSavedBookmark">
+      <table id="myTable">
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Action</th>
+        </tr>
+      </table>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
