@@ -1,39 +1,41 @@
-let activeField;
+const celciusInput = document.querySelector("#celciusInput");
+const fahrenheitInput = document.querySelector("#fahrenheitInput");
+const kelvinInput = document.querySelector("#kelvinInput");
 
-let convertCelToFahr_Kel = function () {
-  let celciusField = activeField.value;
-  let celToFahren = celciusField * (9 / 5) + 32;
-  let celToKelvin = celciusField + 273.15;
-  document.getElementById("fahrenheitField").value = celToFahren;
-  document.getElementById("kelvinField").value = celToKelvin;
-};
+function roundNum(num) {
+  return Math.round(num * 100) / 100;
+}
 
-let convertFahrToCel_Kel = function () {
-  let fahrenheitField = activeField.value;
-  let fahrenToCel = ((fahrenheitField - 32) * 5) / 9;
-  let fahrenToKelvin = (fahrenheitField - 32) * (5 / 9) + 273.15;
-  document.getElementById("celciusField").value = fahrenToCel;
-  document.getElementById("kelvinField").value = fahrenToKelvin;
-};
+function celciToFahAndKevin(e) {
+  const cTemp = parseFloat(e.target.value);
 
-let convertKelvToCel_Fahr = function () {
-  let kelvinField = activeField.value;
-  let kelvinToCelcius = kelvinField - 273.15;
-  let kelvinToFahr = (kelvinField - 273.15) * 1.8 + 32;
-  document.getElementById("celciusField").value = kelvinToCelcius;
-  document.getElementById("fahrenheitField").value = kelvinToFahr;
-};
+  const fTemp = cTemp * (9 / 5) + 32;
+  const kTemp = cTemp + 273.15;
 
-let inputHandler = function (inputField) {
-  activeField = inputField;
+  fahrenheitInput.value = roundNum(fTemp);
+  kelvinInput.value = roundNum(kTemp);
+}
 
-  inputField.addEventListener("input", function () {
-    if (inputField === inputField.getAttribute()) {
-      convertCelToFahr_Kel();
-    } else if (inputField === document.getElementById("fahrenheitField")) {
-      convertFahrToCel_Kel();
-    } else if (inputField === document.getElementById("kelvinField")) {
-      convertKelvToCel_Fahr();
-    }
-  });
-};
+function fahToCelKevin(e) {
+  const fTemp = parseFloat(e.target.value);
+
+  const cTemp = (fTemp - 32) * (5 / 9);
+  const kTemp = (fTemp + 459.67) * (5 / 9);
+
+  celciusInput.value = roundNum(cTemp);
+  kelvinInput.value = roundNum(kTemp);
+}
+
+function kelvToCelFah(e) {
+  const kTemp = parseFloat(e.target.value);
+
+  const cTemp = kTemp - 273.15;
+  const fTemp = (9 / 5) * (kTemp - 273) + 32;
+
+  celciusInput.value = roundNum(cTemp);
+  fahrenheitInput.value = roundNum(fTemp);
+}
+
+celciusInput.addEventListener("input", celciToFahAndKevin);
+fahrenheitInput.addEventListener("input", fahToCelKevin);
+kelvinInput.addEventListener("input", kelvToCelFah);

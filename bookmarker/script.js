@@ -74,10 +74,12 @@ const getInputData = () => {
 const validation = () => {
   let site_Name = document.getElementById("siteNameField").value;
   let site_URL = document.getElementById("siteURLField").value;
-  if (site_Name == "" && site_URL == "") {
+  if (site_Name == "" || site_URL == "") {
     alert("Fill input fields");
-  } else {
+  } else if (isValidUrl(site_URL)) {
     saveBookmark();
+  } else {
+    alert("Enter a Valid URL");
   }
 };
 
@@ -120,3 +122,14 @@ const saveBookmark = () => {
     location.reload();
   }
 };
+
+function isValidUrl(string) {
+  try {
+    new URL(string);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+const deleteBtn = () => {};
