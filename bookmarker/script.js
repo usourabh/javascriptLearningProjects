@@ -7,7 +7,6 @@ window.onload = showAllMarked = () => {
     storedBookmarker = JSON.parse(localStorage.getItem("savedBookmarkArray"));
 
     let myTable = document.getElementById("myTable");
-    console.log("Stored Bookmarks:", storedBookmarker);
 
     storedBookmarker.forEach((item) => {
       let myTr = document.createElement("tr");
@@ -40,20 +39,16 @@ window.onload = showAllMarked = () => {
       let t = document.createTextNode("CLICK ME");
       btn.classList.add("delete-btn");
       btn.appendChild(t);
+      btn.innerHTML = "Delete";
+      btn.id = item.id;
       colDelBtn.appendChild(btn);
+      btn.addEventListener("click", deleteBtn);
       myTr.appendChild(colDelBtn);
-
-      // let colDelete = document.createElement("td");
-      // let deleteBtn = document.createElement("button");
-      // deleteBtn.innerHTML = "Delete";
-      // //button.addEventListener("click", () => {
-      // //   alert(`Button clicked for ${item.siteName}`);
-      // // });
-      // colDelete.appendChild(button);
-      // myTr.appendChild(colDelete);
 
       myTable.appendChild(myTr);
     });
+
+    updateSerialNumbers();
   }
 };
 
@@ -132,4 +127,26 @@ function isValidUrl(string) {
   }
 }
 
-const deleteBtn = () => {};
+const deleteBtn = (e) => {
+  let storedBookmarker = JSON.parse(localStorage.getItem("savedBookmarkArray"));
+  let index = storedBookmarker.findIndex((item) => item.id == e.target.id);
+  if (index !== -1) {
+    //splice will only remove 1 item from array
+    storedBookmarker.splice(index, 1);
+    localStorage.setItem(
+      "savedBookmarkArray",
+      JSON.stringify(storedBookmarker)
+    );
+
+    // get explaination for below
+    let row = e.target.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+    updateSerialNumbers();
+  }
+};
+// Updating the serial numbers
+const updateSerialNumbers = () => {
+  document.querySelectorAll("#myTable tr").forEach((row, index) => {
+    row.querySelector("td").innerHTML = index + 1;
+  });
+};

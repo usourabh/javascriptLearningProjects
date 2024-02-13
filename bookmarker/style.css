@@ -34,11 +34,13 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 5px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 550px;
+  margin-right: 550px;
+  
+  background-color: rgb(34, 83, 187);
   padding: 10px;
   border-radius: 18px;
-  box-shadow: 10px 10px 50px 10px pink inset;
+  /* box-shadow: 10px 10px 50px 10px pink inset; */
 
 }
 .labelName{
@@ -88,7 +90,7 @@ h2{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
   height: auto;
 }
  table{
@@ -102,5 +104,10 @@ td {
   border-bottom: 1px solid #ddd; 
 } 
 .delete-btn{
-  border: 1px solid wheat;
+background-color: rgb(246, 68, 68);  
+color: white;
+padding: 4px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+border: 1px solid rgb(246, 68, 68);
+border-radius: 7px;
 }

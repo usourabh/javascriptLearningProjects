@@ -5,47 +5,41 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;  
+  background-color: rgb(57, 56, 56);
   color: white;
 }
-h1{
-  font-size: 70px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#heading{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  color: yellowgreen;
-}
-.flex-Property{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-#mainDiv{
-  margin-top: 50px;
-  display: flex;
-  font-size: 25px;  
-  justify-content: space-evenly;
   align-items: center;
-}
-
-#box1, #box2, #box3{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-#scoreBoard{
-  padding: 5px;
-  height: 80px;
-  font-size: 60px;
-  border-radius: 9px;
-  box-shadow: 20px yellow;
+  background-color: white;
   text-align: center;
 }
+h1{
+  font-size: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: white;
+
+}
+#mainDiv{
+  background-color: rgb(57, 56, 56);
+  width: 100%;
+  height: 400px;
+  font-size: 25px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#boxesdiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 
 .svg-input{
   height: 80px;
@@ -54,14 +48,10 @@ h1{
   margin-right: 20px;
   padding: 20px;
   background-color: rgb(149, 245, 133);
-
 }
+
 #svgInputBlock{
-  margin-top: 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+ 
 }
 .svg-input:hover{
   background-color: #f17e19;
@@ -74,17 +64,11 @@ h1{
 }
 .messageHeadingWin{
   margin-top: 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   color: yellow;
   font-size: 90px;
 }
 .messageHeadingLoose{
   margin-top: 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   color: red;
   font-size: 90px;
 }
